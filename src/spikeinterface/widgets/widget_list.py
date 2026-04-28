@@ -39,6 +39,7 @@ from .collision import ComparisonCollisionBySimilarityWidget, StudyComparisonCol
 from .unit_labels import WaveformOverlayByLabelWidget
 from .unit_valid_periods import ValidUnitPeriodsWidget
 from .bombcell_curation import BombcellUpsetPlotWidget, plot_bombcell_unit_labeling_all
+from .firing_rate_map import FiringRateMapWidget
 
 widget_list = [
     AgreementMatrixWidget,
@@ -51,6 +52,7 @@ widget_list = [
     CrossCorrelogramsWidget,
     DriftingTemplatesWidget,
     DriftRasterMapWidget,
+    FiringRateMapWidget,
     ISIDistributionWidget,
     MetricsHistogramsWidget,
     LocationsWidget,
@@ -136,6 +138,7 @@ plot_crosscorrelograms = CrossCorrelogramsWidget
 plot_drifting_templates = DriftingTemplatesWidget
 plot_drift_raster_map = DriftRasterMapWidget
 plot_valid_unit_periods = ValidUnitPeriodsWidget
+plot_firing_rate_map = FiringRateMapWidget
 plot_isi_distribution = ISIDistributionWidget
 plot_locations = LocationsWidget
 plot_motion = MotionWidget
