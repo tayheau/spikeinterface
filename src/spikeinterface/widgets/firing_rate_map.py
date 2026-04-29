@@ -51,7 +51,7 @@ class FiringRateMapWidget(BaseWidget):
                 for unit_id in unit_ids:
                     # Get spikes for this segment and unit
                     spike_times = (
-                        sorting.get_unit_spike_train(unit_id=unit_id, segment_index=seg_idx) / sorting.sampling_frequency
+                        sorting.get_unit_spike_train_in_seconds(unit_id=unit_id, segment_index=seg_idx)
                     )
 
                     # Store data
@@ -90,8 +90,12 @@ class FiringRateMapWidget(BaseWidget):
             mask = (train_s > time_range[0]) & (train_s <= time_range[1])
             selected_spikes = train_s[mask]
             counts, _ = np.histogram(selected_spikes, dp.n_bins, range=tuple(time_range))
+            firing_rate = counts / dp.bin_duration
+            mean = np.mean(firing_rate)
+            std = np.std(firing_rate)
+
             # image = np.stack((image, counts), axis=0)
-            image.append(counts)
+            image.append(firing_rate)
 
         imshow_kwargs = dict(
             cmap=dp.cmap,
